@@ -6,5 +6,9 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "gdown>=5.2.0",
+    "numpy>=2.3.2",
+    "open3d>=0.19.0",
+    "scipy>=1.16.1",
+    "torch>=2.8.0",
     "unzip>=1.0.0",
 ]
