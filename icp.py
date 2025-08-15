@@ -232,9 +232,9 @@ class ICP3DMatchTester:
         # Compute translation error
         trans_error = np.linalg.norm(pred_trans.flatten() - gt_trans.flatten())
         
-        # Registration success criteria (relaxed for challenging cases)
-        rot_success = rot_error_deg < 30.0  # Relaxed from 15 to 30 degrees
-        trans_success = trans_error < 0.5   # Relaxed from 0.2 to 0.5 meters
+                # Registration success criteria (following 3DMatch protocol)
+        rot_success = rot_error_deg < 15.0  # 15 degrees
+        trans_success = trans_error < 0.2   # 0.2 meters (as per image)
         
         registration_recall = rot_success and trans_success
         
@@ -293,12 +293,12 @@ class ICP3DMatchTester:
                 # Compute Inlier Ratio (IR)
                 if len(match_pred) > 0:
                     ir = self.compute_inlier_ratio(
-                        match_pred, src_pcd, tgt_pcd, gt_rot, gt_trans, inlier_thr=0.2  # More lenient
+                        match_pred, src_pcd, tgt_pcd, gt_rot, gt_trans, inlier_thr=0.1  # 0.1m as per image
                     )
                     total_IR += ir
                     
                     # Feature Matching Recall (FMR) - more lenient threshold
-                    fmr = 1.0 if ir > 0.01 else 0.0  # 1% instead of 5%
+                    fmr = 1.0 if ir > 0.05 else 0.0  # 5% threshold as per image
                     total_FMR += fmr
                 else:
                     ir = 0.0

@@ -1,11 +1,11 @@
 {
-  "registration_recall": 0.0016666666666666668,
-  "inlier_rate": 0.0003888753928379878,
-  "feature_matching_recall": 0.011666666666666667,
+  "registration_recall": 0.0,
+  "inlier_rate": 1.2144388979261362e-05,
+  "feature_matching_recall": 0.0,
   "num_runs": 3,
   "individual_runs": {
-    "rr": 0.0016666666666666668,
-    "ir": 0.0003888753928379878,
-    "fmr": 0.011666666666666667
+    "rr": 0.0,
+    "ir": 1.2144388979261362e-05,
+    "fmr": 0.0
   }
 }
